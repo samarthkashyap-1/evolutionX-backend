@@ -4,7 +4,7 @@ import Pokemon from "../models/pokemonModel";
 import User from "../models/userModel";
 
 const decreaseHP = async (pokemonId: string) => {
-    let retries = 5; // Number of retries
+    let retries = 5; 
     while (retries > 0) {
       try {
         const session = await mongoose.startSession();
@@ -26,7 +26,7 @@ const decreaseHP = async (pokemonId: string) => {
           const currTime = new Date()
 
           const timeSinceWeLastEat = currTime.getTime() - pokemon.lastMealTime.getTime()
-          if(timeSinceWeLastEat >= 600000){
+          if(timeSinceWeLastEat >= 10800000){
             if (pokemon.health > 0) {
               pokemon.health -= 10;
              
